@@ -11,8 +11,21 @@ class PostController extends Controller
     public function index()
     {
         //
-        $post = Post::all();
-        return view('posts.index')->with('posts', $post);
+         $posts = Post::all(); // Eloquent ORM (Object Relational Mapping)
+        // view => resources/views/posts/index.blade.php
+        return view('posts.index')->with('posts', $posts);
+
+//        $posts = Post::where('created_at', null)->first();
+
+/*        $posts = Post::where('created_at', null)
+            ->where('updated_at', null)
+            ->get();
+
+        $posts = Post::query()
+            ->where('created_at', '=', null)
+            ->where('updated_at', '=', null)
+            ->get();
+        dd($posts);*/
     }
 
     /**
