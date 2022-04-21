@@ -5,17 +5,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Posts</title>
+    <title>Document</title>
 </head>
 <body>
 
-    <h1>Browse</h1>
-    <ul>
-        @foreach($posts as $post)
-            <li><a href="{{ url('posts/' . $post->slug) }}">{{ $post->title }}</a></li>
-        @endforeach
-    </ul>
-
+    <h1>{{ $post->title }}</h1>
+    <div>
+        {{ $post->body }}
+    </div>
+    <div>
+        <a href="{{ route('posts.index') }}">Back</a>
+    </div>
 
 </body>
 </html>
