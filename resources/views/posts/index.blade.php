@@ -12,7 +12,8 @@
     <h1>Browse</h1>
     <ul>
         @foreach($posts as $post)
-            <li><a href="{{ url('posts/' . $post->slug) }}">{{ $post->title }}</a></li>
+{{--            <li><a href="{{ url('posts/' . $post->slug) }}">{{ $post->title }}</a></li>--}}
+            <li><a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a></li>
         @endforeach
     </ul>
 
