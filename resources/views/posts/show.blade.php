@@ -17,5 +17,9 @@
         <a href="{{ route('posts.index') }}">Back</a>
     </div>
 
+    <div>
+        <a href="{{ route('posts.destroy', $post->id) }}">Delete</a>
+    </div>
+
 </body>
 </html>
