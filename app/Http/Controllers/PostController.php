@@ -108,4 +108,22 @@ class PostController extends Controller
 
         return redirect()->route('posts.index');
     }
+
+    public function trashed()
+    {
+        $posts = Post::onlyTrashed()->get();
+        return view('posts.deleted')->with('posts', $posts);
+    }
+
+    public function all(){
+        $posts = Post::withTrashed()->get();
+        return view('posts.index')->with('posts', $posts);
+    }
+
+    public function restore($id){
+        $post = Post::withTrashed()->findOrFail($id);
+        $post->restore();
+        return redirect()->route('posts.index');
+    }
+
 }

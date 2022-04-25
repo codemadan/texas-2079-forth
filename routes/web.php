@@ -28,5 +28,8 @@ Route::get('/home/{name}',[HomeController::class, 'show'])
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts/create', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/trashed', [PostController::class, 'trashed'])->name('posts.trashed');
+Route::get('/posts/all', [PostController::class, 'all'])->name('posts.all');
+Route::get('/posts/restore/{id}', [PostController::class, 'restore'])->name('posts.restore');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/posts/delete/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
